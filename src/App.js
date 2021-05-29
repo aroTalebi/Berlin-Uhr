@@ -5,6 +5,7 @@ import './App.css';
 function App() {
   return (
     <div className="container">
+      {/* get digital and Berlin-Clock */}
       <Clock/>
     </div>
   );

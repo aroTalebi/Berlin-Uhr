@@ -25,7 +25,7 @@ class BerlinUhr extends Component {
         clearInterval(this.timerID);
     }
 
-    handleAllMinReset = () => {
+    handleAllMinReset = () => {                                                               //all "5 minutes lights" off  
         const counters5LightsMinutes = this.state.counters5LightsMinutes.map(counter => {
             counter.light = 0;
             return counter;
@@ -38,7 +38,7 @@ class BerlinUhr extends Component {
         this.setState({ counters5LightsMinutes, counters1LightsMinutes });
     }
 
-    handleAllHoursReset = () => {
+    handleAllHoursReset = () => {                                                               //all "5 Hours lights" off
         const counters5LightsHours = this.state.counters5LightsHours.map(counter => {
             counter.light = 0;
             return counter;
@@ -52,28 +52,29 @@ class BerlinUhr extends Component {
     }
 
 
-    handleMinutesLight = () => {
+    handleMinutesLight = () => {                                                                 //set Berlin-clock
         const { hours, minutes } = this.props.handleTime;
 
-        const counters5LightsHours = [...this.state.counters5LightsHours];
-        const counters1LightsHours = [...this.state.counters1LightsHours];
-        const counters5LightsMinutes = [...this.state.counters5LightsMinutes];
-        const counters1LightsMinutes = [...this.state.counters1LightsMinutes];
+        const counters5LightsHours = [...this.state.counters5LightsHours];                       //get "5 hours" lights
+        const counters1LightsHours = [...this.state.counters1LightsHours];                       //get "1 hours" lights
+        const counters5LightsMinutes = [...this.state.counters5LightsMinutes];                   //get "5 minutes" lights
+        const counters1LightsMinutes = [...this.state.counters1LightsMinutes];                   //get "1 minutes" lights
 
         const counter5Hours = Math.floor(hours / 5);
         const counter1Hours = hours % 5;
+
         const counter5Minutes = Math.floor(minutes / 5);
         const counter1Minutes = minutes % 5;
 
-        if (minutes === 0) {
+        if (minutes === 0) {                                                                    //if minutes '00' all minutes lights off
             this.handleAllMinReset();
         }
 
-        if (hours === 0) {
+        if (hours === 0) {                                                                      //if hours '00' all hours lights off
             this.handleAllHoursReset();
         }
 
-        for (var hrc5 = 0; hrc5 < counter5Hours; hrc5++) {
+        for (var hrc5 = 0; hrc5 < counter5Hours; hrc5++) {                                      //set "5 lights" hours from brlin-oclock
             counters5LightsHours[hrc5].light = 1;
             this.setState({ counters5LightsHours });
             for (var hrc1 = 0; hrc1 < 4; hrc1++) {
@@ -82,12 +83,12 @@ class BerlinUhr extends Component {
             }
         }
 
-        for (var hrc = 0; hrc < counter1Hours; hrc++) {
+        for (var hrc = 0; hrc < counter1Hours; hrc++) {                                         //set "1 lights" hours from brlin-oclock
             counters1LightsHours[hrc].light = 1;
             this.setState({ counters1LightsHours });
         }
 
-        for (var min5 = 0; min5 < counter5Minutes; min5++) {
+        for (var min5 = 0; min5 < counter5Minutes; min5++) {                                    //set "5 lights" minutes from brlin-oclock
             counters5LightsMinutes[min5].light = 1;
             this.setState({ counters5LightsMinutes });
             for (var min1 = 0; min1 < 4; min1++) {
@@ -96,7 +97,7 @@ class BerlinUhr extends Component {
             }
         }
 
-        for (var min = 0; min < counter1Minutes; min++) {
+        for (var min = 0; min < counter1Minutes; min++) {                                       //set "1 lights" minutes from brlin-oclock
             counters1LightsMinutes[min].light = 1;
             this.setState({ counters1LightsMinutes });
         }

@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 
 class Minutes extends Component {
 
-    getColorLight = counter => {                                //if light off background white and light on background red
+    getColorLight = counter => {                                //if light off background "white" and light on background "gold"
         let classes = "box-4-lights bg-";
         classes += (counter.light === 0) ? "white" : "warning";
         return classes;
     }
 
-    getColor5MinLight = counter => {                                //if light off background white and light on background red
+    getColor5MinLight = counter => {                                //if light off background "white" and light on background "red" or "gold"
         let classes = "minutes-5-lights bg-";
         const id = counter.id;
         if ((id % 3) === 0) {

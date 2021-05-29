@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Hours extends Component {
 
-    getColorLight = counter => {                                //if light off background white and light on background red
+    getColorLight = counter => {                                //if light off background "white" , if light on background "red"
         let classes = "box-4-lights bg-";
         classes += (counter.light === 0) ? "white" : "danger";
         return classes;

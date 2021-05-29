@@ -31,7 +31,7 @@ class Clock extends React.Component {
         const time = this.state;
         return (
             <React.Fragment>
-                {/*write Berlin clock */}
+                {/*get Berlin clock hier*/}
                 <div className="row">
                     <div className="col-lg-4"></div>
                     <div className="col-lg-4">
@@ -40,7 +40,7 @@ class Clock extends React.Component {
                     <div className="col-lg-4"></div>
                 </div>
 
-                {/*write digital clock */}
+                {/*get digital clock hier*/}
                 <div className="row">
                     <div className="col-lg-4"></div>
                     <div className="col-lg-4">
